@@ -38,29 +38,5 @@ func main() {
 		return c.Render(200, "index", 0)
 	})
 
-	e.GET("/contact-info", func(c echo.Context) error {
-		return c.Render(200, "contact-info", 0)
-	})
-
-	e.GET("/summary", func(c echo.Context) error {
-		return c.Render(200, "summary", 0)
-	})
-
-	e.GET("/education", func(c echo.Context) error {
-		return c.Render(200, "education", 0)
-	})
-
-	e.GET("/work-experience", func(c echo.Context) error {
-		return c.Render(200, "work-experience", 0)
-	})
-
-	e.GET("/skills", func(c echo.Context) error {
-		return c.Render(200, "skills", 0)
-	})
-
-	e.GET("/projects", func(c echo.Context) error {
-		return c.Render(200, "projects", 0)
-	})
-
 	e.Logger.Fatal(e.Start(":42069"))
 }

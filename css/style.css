@@ -1,5 +1,7 @@
 html {
     overflow: hidden;
+    font-family: "Fira Mono", monospace;
+    line-height: 1.15em;
 }
 
 body {
@@ -8,12 +10,24 @@ body {
     --text-tet: #1a1a1a;
     --bg-main: #1a1a1a;
     --bg-sec: #facc48;
+    --bg-tet: #2a2a2a;
+    --shadow-main: #151515;
+    --shadow-sec: #181818;
+    --n: 500;
     background-color: var(--bg-main);
     color: var(--text-main);
 }
 
+b {
+    color: white;
+}
+
 h1 {
     color: var(--text-sec);
+    font-family: "Rubik Mono One";
+    text-wrap: wrap;
+    line-height: 1em;
+    margin-bottom: 0;
 }
 
 .bg {
@@ -24,7 +38,6 @@ h1 {
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-    fill: var(--bg-sec);
     color: var(--text-tet);
 }
 
@@ -37,27 +50,81 @@ h1 {
     pointer-events: none;
     z-index: -1;
     transform: rotate(10deg);
+    fill: var(--bg-sec);
+    filter: drop-shadow(1em 0.5em 1em var(--shadow-sec));
+}
+
+#bbg1 {
+    position: absolute;
+    top: -2930px;
+    right: 40vw;
+    width: 2350px;
+    height: 5000px;
+    pointer-events: none;
+    z-index: -2;
+    transform: rotate(10deg);
+    fill: var(--bg-tet);
+    filter: drop-shadow(1em 0.5em 1em var(--shadow-main));
 }
 
 #bg2 {
     position: absolute;
     top: -1500px;
     right: -1300px;
-    width: 2500px;
+    width: 2465px;
     height: 5000px;
     pointer-events: none;
     z-index: -1;
-    transform: rotate(10deg);
+    transform: rotate(8deg);
+    fill: var(--bg-sec);
+    filter: drop-shadow(-1em -0.5em 1em var(--shadow-sec));
+}
+
+#bbg2 {
+    position: absolute;
+    top: -1480px;
+    right: -1400px;
+    width: 2650px;
+    height: 5000px;
+    pointer-events: none;
+    z-index: -2;
+    transform: rotate(8deg);
+    fill: var(--bg-tet);
+    filter: drop-shadow(-1em -0.5em 1em var(--shadow-main));
 }
 
 .wide {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    h3 {
+        line-height: 0.5em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        line-height: 0.9em;
+        margin-top: 0.5em;
+        margin-bottom: 0.8em;
+        width: 5cm;
+    }
+}
+
+.subtitle {
+    background-color: var(--bg-tet);
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    padding-left: 0.5em;
+    padding-top: -0.5em;
+    padding-bottom: -1em;
+    box-shadow: 0.5em 0.5em 0.5em var(--shadow-main);
 }
 
 .right {
     text-align: right;
+    width: 5cm;
 }
 
 .full-width {
@@ -66,6 +133,8 @@ h1 {
 }
 
 #content {
+    position: relative;
+    top: 5em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -89,6 +158,7 @@ h1 {
 
     & > h1 {
         color: var(--text-tet);
+        width: 28vw;
     }
 }
 
@@ -117,6 +187,11 @@ h1 {
         list-style: none;
         padding: 0;
         margin: 0;
+        margin-top: -10px;
+
+        > li {
+            margin-bottom: 0.6em;
+        }
     }
 }
 
@@ -141,4 +216,59 @@ h1 {
     & > div {
         font-size: 1em !important;
     }
+}
+
+#work-experience {
+    ul {
+        margin-top: -0.5em;
+        li {
+            padding-bottom: 0.5em;
+        }
+    }
+}
+
+.typewriter {
+    color:#0000;
+    background:
+      linear-gradient(-90deg,#facc48 5px,#0000 0) 10px 0,
+      linear-gradient(#d8d8d8 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    animation: 
+      b .7s infinite steps(1),   
+      t calc(var(--n)*.005s) steps(var(--n)) forwards;
+}
+
+.typewriter-dark {
+    color:#0000;
+    background:
+      linear-gradient(-90deg,#1a1a1a 5px,#0000 0) 10px 0,
+      linear-gradient(#1a1a1a 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    animation: 
+      b .7s infinite steps(1),   
+      t calc(var(--n)*.05s) steps(var(--n)) forwards;
+}
+
+.typewriter-title {
+    color:#0000;
+    background:
+      linear-gradient(-90deg,#facc48 5px,#0000 0) 10px 0,
+      linear-gradient(#facc48 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    animation: 
+      b .7s infinite steps(1),   
+      t calc(var(--n)*.1s) steps(var(--n)) forwards;
+}
+
+@keyframes t{
+  from {background-size:0 200%}
+}
+@keyframes b{
+  50% {background-position:0 -100%,0 0}
 }
