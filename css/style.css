@@ -1,0 +1,144 @@
+html {
+    overflow: hidden;
+}
+
+body {
+    --text-main: #d8d8d8;
+    --text-sec: #facc48;
+    --text-tet: #1a1a1a;
+    --bg-main: #1a1a1a;
+    --bg-sec: #facc48;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+}
+
+h1 {
+    color: var(--text-sec);
+}
+
+.bg {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    fill: var(--bg-sec);
+    color: var(--text-tet);
+}
+
+#bg1 {
+    position: absolute;
+    top: -3000px;
+    right: 40vw;
+    width: 2500px;
+    height: 5000px;
+    pointer-events: none;
+    z-index: -1;
+    transform: rotate(10deg);
+}
+
+#bg2 {
+    position: absolute;
+    top: -1500px;
+    right: -1300px;
+    width: 2500px;
+    height: 5000px;
+    pointer-events: none;
+    z-index: -1;
+    transform: rotate(10deg);
+}
+
+.wide {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.full-width {
+    width: 21cm;
+    margin: auto;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#flex-box {
+    display: flex;
+    flex-direction: column;
+    & > div {
+        width: 10cm;
+    }
+}
+
+#contact-info {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2em;
+
+    color: var(--text-tet);
+
+    & > h1 {
+        color: var(--text-tet);
+    }
+}
+
+#skills {
+    color: var(--text-tet);
+    position: absolute;
+    top: 300px;
+    right: -50px;
+    width: 480px;
+    padding: 1em;
+
+    & > .title > h1 {
+        color: var(--text-tet);
+    }
+}
+
+.skill-list {
+    display: flex;
+    justify-content: space-between;
+
+    & > div {
+        width: 45%;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.line {
+    width: 100%;
+    height: 0;
+    border-top: 1px solid var(--text-main);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    & > div {
+        padding-right: 0.5em;
+        font-size: 1.5em;
+    }
+}
+
+.small {
+    margin-left: -1.5em;
+
+    & > div {
+        font-size: 1em !important;
+    }
+}

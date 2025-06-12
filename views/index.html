@@ -1,0 +1,239 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="se">
+    <head>
+        <title>Martin Rimbro Åstrand Resume</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        {{ template "resume" . }}
+    </body>
+</html>
+{{ end }}
+
+{{ block "resume" . }}
+<div class="full-width">
+    <div class="bg">
+        <svg viewBox="0 0 480 480" id="bg1"><path d="M360 120 240 0 120 120v240l120 120 120-120V120z"></path></svg>
+        <svg viewBox="0 0 480 480" id="bg2"><path d="M360 120 240 0 120 120v240l120 120 120-120V120z"></path></svg>
+    </div>
+    <div>
+        {{ template "contact-info" . }}
+    </div>
+    <div>
+        {{ template "skills" . }}
+    </div>
+    <div id="content">
+        <div id="flex-box">
+            <div>
+                {{ template "summary" . }}
+            </div>
+            <p class="line" />
+            <div>
+                {{ template "education" . }}
+            </div>
+            <p class="line" />
+            <div>
+                {{ template "projects" . }}
+            </div>
+        </div>
+        <div id="flex-box">
+            <div>
+                {{ template "work-experience" . }}
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ block "contact-info" . }}
+<div id="contact-info">
+    <h1>Martin Rimbro Åstrand</h1>
+    <p><div class="fas fa-globe"></div> Malmö, SE</p>
+    <p><div class="fas fa-envelope"></div> martin.rimbro@gmail.com</p>
+    <p><div class="fas fa-phone"></div> (+46)702 83 69 74</p>
+</div>
+{{ end }}
+
+{{ block "summary" . }}
+<div id="summary">
+    <div class="title">
+        <div class="fas fa-user"></div>
+        <h1>Summary</h1>
+    </div>
+    <p>
+    A motivated full-stack software engineer with 3+ years of experience working in fintech.
+    </p>
+    <p>
+    I've had my hands in everything from the CI/CD workflow using github actions and Argo, to database migrations and queries in postgreSQL, to REST API implementations in Django, to client facing frontend work with React and Typescript.
+    </p>
+    <p>
+    The projects I worked on as a part of the "Core team" paved the way for us to become number one in our field.
+    </p>
+</div>
+{{ end }}
+
+{{ block "education" . }}
+<div id="education">
+    <div class="title">
+        <div class="fas fa-graduation-cap"></div>
+        <h1>Education</h1>
+    </div>
+    <div class="wide">
+        <div>
+            <h3>Newton</h3>
+            <p>A.S in CS - Systems Development</p>
+        </div>
+        <div class="right">
+            <p>Malmö, SE</p>
+            <p>2020 -  2022</p>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ block "work-experience" . }}
+<div id="work-experience">
+    <div class="title">
+        <div class="fas fa-briefcase"></div>
+        <h1>Work Experience</h1>
+    </div>
+    <div class="wide">
+        <div>
+            <h3>Hulo Consulting</h3>
+            <p>SE-II (Contractor at an american fintech company)</p>
+        </div>
+        <div class="right">
+            <p>Remote</p>
+            <p>June 2022 - Present</p>
+        </div>
+    </div>
+    <ul>
+        <li>
+            Modernizing the client application by updating components from an older framework to React, along with adding new API's with validation in the backend.
+        </li>
+        <li>
+            Leading risk initiative projects, involving a lot of stakeholders. Several of which I had other engineers working under me. This included special deals for partners, creating and leading pilots for loan programs that would make us more competative.
+        </li>
+        <li>
+            Optimizing CI/CD times by deconstructing all of the steps involved in order to find pain-points where we could get a big impact with a low amount of effort.
+        </li>
+        <li>
+            Implementing E2E testing framework acress the entire application, using Playwright to create both smoke, and acceptance tests that became requirements for any PR to become eligible for merge.
+        </li>
+    </ul>
+    <div class="wide">
+        <div>
+            <h3>Sharlic</h3>
+            <p>SE-ii</p>
+        </div>
+        <div class="right">
+            <p>Malmö, SE</p>
+            <p>2022 - 2024</p>
+        </div>
+    </div>
+    <ul>
+        <li>
+            Implementing the Client application from the ground up. Setting up rules for linting and code standards, and deciding on the structure for component creation.
+        </li>
+        <li>
+            Lead Frontend Engineer, where I decided on what packages we should use, and was available as a point of contact for all of the junior Devs when it came to client side engineering.
+        </li>
+    </ul>
+</div>
+{{ end }}
+
+{{ block "skills" . }}
+<div id="skills">
+    <div class="title">
+        <div class="fas fa-flask-vial"></div>
+        <h1>Skills</h1>
+    </div>
+    <div class="skill-list">
+        <div>
+            <div class="title small">
+                <div class="fas fa-circle-info"></div>
+                <h3>Programming Languages:</h3>
+            </div>
+            <ul>
+                <li>Typescript</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>Go</li>
+                <li>Javascipt</li>
+                <li>C#</li>
+                <li>Bash</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>Cucumber</li>
+                <li>Yaml</li>
+            </ul>
+            <div class="title small">
+                <div class="fas fa-circle-info"></div>
+                <h3>Tools:</h3>
+            </div>
+            <ul>
+                <li>Vim</li>
+                <li>SSH</li>
+                <li>VSCode</li>
+                <li>ZSH</li>
+            </ul>
+        </div>
+        <div>
+            <div class="title small">
+                <div class="fas fa-circle-info"></div>
+                <h3>Frameworks:</h3>
+            </div>
+            <ul>
+                <li>React</li>
+                <li>Django</li>
+                <li>Vue</li>
+                <li>Svelte</li>
+                <li>Spring Boot</li>
+                <li>ASP.net</li>
+                <li>Django Rest Framework</li>
+                <li>Playwright</li>
+            </ul>
+            <div class="title small">
+                <div class="fas fa-circle-info"></div>
+                <h3>Technologies:</h3>
+            </div>
+            <ul>
+                <li>Git</li>
+                <li>Docker</li>
+                <li>K3S (Kubernetes)</li>
+                <li>Argo</li>
+                <li>Linux</li>
+                <li>Jira</li>
+                <li>Confluence</li>
+                <li>Styled Components</li>
+            </ul>
+            <div class="title small">
+                <div class="fas fa-circle-info"></div>
+                <h3>Spoken Languages:</h3>
+            </div>
+            <ul>
+                <li>Swedish</li>
+                <li>English</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ block "projects" . }}
+<div id="projects">
+    <div class="title">
+        <div class="fas fa-screwdriver-wrench"></div>
+        <h1>Projects</h1>
+    </div>
+    <span><b>Homelab</b> Linux, K3S, docker, Grafana, Prometheus, Argo, Cloudflare</span>
+    <span>
+        In my fascination with hardware, networking, and infrastructure, I've set up a local server cluster running a number of apps in Kubernetes all using remote storage hosted on a Debian server with ZFS and NFS. Having a local environment where I can learn about infrastructure and hosting, and experiment has given me a lot of experience setting up HA (High Availability) and efficient applications.
+    </span>
+</div>
+{{ end }}
