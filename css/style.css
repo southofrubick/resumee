@@ -6,13 +6,14 @@ html {
 
 body {
     --text-main: #d8d8d8;
-    --text-sec: #facc48;
+    --text-sec: #ff8800;
     --text-tet: #1a1a1a;
     --bg-main: #1a1a1a;
-    --bg-sec: #facc48;
+    --bg-sec: #ff8800;
     --bg-tet: #2a2a2a;
-    --shadow-main: #151515;
+    --shadow-main: #101010;
     --shadow-sec: #181818;
+    --shadow-tet: #00000060;
     --n: 500;
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -20,6 +21,10 @@ body {
 
 b {
     color: white;
+}
+
+span {
+    filter: drop-shadow(0.2em 0.2em 0.2em var(--shadow-tet));
 }
 
 h1 {
@@ -128,7 +133,7 @@ h1 {
 }
 
 .full-width {
-    width: 21cm;
+    width: 22cm;
     margin: auto;
 }
 
@@ -144,7 +149,7 @@ h1 {
     display: flex;
     flex-direction: column;
     & > div {
-        width: 10cm;
+        width: 11cm;
     }
 }
 
@@ -189,8 +194,9 @@ h1 {
         margin: 0;
         margin-top: -10px;
 
-        > li {
-            margin-bottom: 0.6em;
+        li {
+            margin-bottom: 0.7em;
+            font-weight: 1000;
         }
     }
 }
@@ -230,14 +236,14 @@ h1 {
 .typewriter {
     color:#0000;
     background:
-      linear-gradient(-90deg,#facc48 5px,#0000 0) 10px 0,
+      linear-gradient(-90deg,#ff8800 5px,#0000 0) 10px 0,
       linear-gradient(#d8d8d8 0 0) 0 0;
     background-size:calc(var(--n)*1ch) 200%;
     background-clip:padding-box,text;
     background-repeat:no-repeat;
     animation: 
       b .7s infinite steps(1),   
-      t calc(var(--n)*.005s) steps(var(--n)) forwards;
+      t calc(var(--n)*.01s) steps(var(--n)) forwards;
 }
 
 .typewriter-dark {
@@ -250,17 +256,18 @@ h1 {
     background-repeat:no-repeat;
     animation: 
       b .7s infinite steps(1),   
-      t calc(var(--n)*.05s) steps(var(--n)) forwards;
+      t calc(var(--n)*.1s) steps(var(--n)) forwards;
 }
 
 .typewriter-title {
     color:#0000;
     background:
-      linear-gradient(-90deg,#facc48 5px,#0000 0) 10px 0,
-      linear-gradient(#facc48 0 0) 0 0;
+      linear-gradient(-90deg,#ff8800 5px,#0000 0) 10px 0,
+      linear-gradient(#ff8800 0 0) 0 0;
     background-size:calc(var(--n)*1ch) 200%;
     background-clip:padding-box,text;
     background-repeat:no-repeat;
+    filter: drop-shadow(0.2em 0.2em 0 var(--shadow-main));
     animation: 
       b .7s infinite steps(1),   
       t calc(var(--n)*.1s) steps(var(--n)) forwards;
