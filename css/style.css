@@ -6,14 +6,14 @@ html {
 
 body {
     --text-main: #d8d8d8;
-    --text-sec: #ff8800;
+    --text-sec: #ff9933;
     --text-tet: #1a1a1a;
     --bg-main: #1a1a1a;
-    --bg-sec: #ff8800;
+    --bg-sec: #ff9933;
     --bg-tet: #2a2a2a;
     --shadow-main: #101010;
     --shadow-sec: #181818;
-    --shadow-tet: #00000060;
+    --shadow-tet: #00000050;
     --n: 500;
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -24,7 +24,7 @@ b {
 }
 
 span {
-    filter: drop-shadow(0.2em 0.2em 0.2em var(--shadow-tet));
+    filter: drop-shadow(2px 1px 1px black);
 }
 
 h1 {
@@ -149,7 +149,7 @@ h1 {
     display: flex;
     flex-direction: column;
     & > div {
-        width: 11cm;
+        width: 10.5cm;
     }
 }
 
@@ -236,7 +236,7 @@ h1 {
 .typewriter {
     color:#0000;
     background:
-      linear-gradient(-90deg,#ff8800 5px,#0000 0) 10px 0,
+      linear-gradient(-90deg,#ff9933 5px,#0000 0) 10px 0,
       linear-gradient(#d8d8d8 0 0) 0 0;
     background-size:calc(var(--n)*1ch) 200%;
     background-clip:padding-box,text;
@@ -254,16 +254,37 @@ h1 {
     background-size:calc(var(--n)*1ch) 200%;
     background-clip:padding-box,text;
     background-repeat:no-repeat;
+    filter: drop-shadow(4px 2px 1px var(--shadow-tet));
     animation: 
       b .7s infinite steps(1),   
       t calc(var(--n)*.1s) steps(var(--n)) forwards;
 }
 
+.typewriter-contact {
+    color:#0000;
+    background:
+      linear-gradient(-90deg,#1a1a1a 5px,#0000 0) 10px 0,
+      linear-gradient(#1a1a1a 0 0) 0 0;
+    background-size:calc(var(--n)*1ch) 200%;
+    background-clip:padding-box,text;
+    background-repeat:no-repeat;
+    filter: drop-shadow(4px 2px 1px var(--shadow-tet));
+    animation: 
+      b .7s infinite steps(1),   
+      t calc(var(--n)*.03s) steps(var(--n)) forwards;
+
+
+    a {
+        color:#0000;
+        text-decoration: none;
+    }
+}
+
 .typewriter-title {
     color:#0000;
     background:
-      linear-gradient(-90deg,#ff8800 5px,#0000 0) 10px 0,
-      linear-gradient(#ff8800 0 0) 0 0;
+      linear-gradient(-90deg,#ff9933 5px,#0000 0) 10px 0,
+      linear-gradient(#ff9933 0 0) 0 0;
     background-size:calc(var(--n)*1ch) 200%;
     background-clip:padding-box,text;
     background-repeat:no-repeat;
