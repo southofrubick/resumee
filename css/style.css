@@ -1,7 +1,8 @@
 html {
     overflow: hidden;
     font-family: "Fira Mono", monospace;
-    line-height: 1.15em;
+    line-height: 1.1em;
+    font-size: 0.9em;
 }
 
 body {
@@ -135,6 +136,7 @@ h1 {
 .full-width {
     width: 22cm;
     margin: auto;
+    padding-right: 10em;
 }
 
 #content {
@@ -172,7 +174,7 @@ h1 {
     position: absolute;
     top: 300px;
     right: -50px;
-    width: 480px;
+    width: 460px;
     padding: 1em;
 
     & > .title > h1 {

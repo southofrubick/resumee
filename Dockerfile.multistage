@@ -1,0 +1,30 @@
+# syntax=docker/dockerfile:1
+
+FROM golang:1.23 AS builder
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y ca-certificates openssl tzdata
+ARG cert_location=/usr/local/share/ca-certificates
+
+RUN openssl s_client -showcerts -connect github.com:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > $cert_location/github.crt
+RUN openssl s_client -showcerts -connect proxy.golang.org:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > $cert_location/proxy.golang.crt
+
+RUN update-ca-certificates
+
+COPY . .
+RUN go mod download
+RUN go mod verify
+
+RUN GO111MODULE=on CGO_ENABLED=0 GOOS=linux go build -o main
+
+FROM scratch
+
+WORKDIR /app
+
+COPY --from=builder /app/main .
+COPY --from=builder /app/views .
+COPY --from=builder /app/css .
+
+EXPOSE 42069
+
+CMD ["./main"]
