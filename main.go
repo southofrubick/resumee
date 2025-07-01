@@ -18,7 +18,7 @@ func (t *Templates) Render(w io.Writer, name string, data interface{}, c echo.Co
 
 func NewTemplates() *Templates {
 	return &Templates{
-		templates: template.Must(template.ParseGlob("views/index.html")),
+		templates: template.Must(template.ParseGlob("index.html")),
 	}
 }
 
@@ -30,7 +30,7 @@ func main() {
 
 	e := echo.New()
 	e.Use(middleware.Logger())
-	e.File("css/style.css", "css/style.css")
+	e.File("style.css", "style.css")
 
 	e.Renderer = NewTemplates()
 
