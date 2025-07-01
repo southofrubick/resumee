@@ -5,7 +5,7 @@
         <title>Martin Rimbro Åstrand Resume</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="css/style.css" rel="stylesheet" type="text/css">
         <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,39 +19,42 @@
 {{ end }}
 
 {{ block "resume" . }}
-<div class="full-width">
+<div>
     <div class="bg">
         <svg viewBox="0 0 480 480" id="bg1"><path d="M360 120 240 0 120 120v240l120 120 120-120V120z"></path></svg>
         <svg viewBox="0 0 480 480" id="bbg1"><path d="M360 120 240 0 120 120v240l120 120 120-120V120z"></path></svg>
         <svg viewBox="0 0 480 480" id="bg2"><path d="M360 120 240 0 120 120v240l120 120 120-120V120z"></path></svg>
         <svg viewBox="0 0 480 480" id="bbg2"><path d="M360 120 240 0 120 120v240l120 120 120-120V120z"></path></svg>
     </div>
-    <div>
-        {{ template "contact-info" . }}
-    </div>
-    <div>
-        {{ template "skills" . }}
-    </div>
-    <div id="content">
-        <div id="flex-box">
-            <div>
-                {{ template "summary" . }}
-            </div>
-            <p class="line" />
-            <div>
-                {{ template "education" . }}
-            </div>
-            <p class="line" />
-            <div>
-                {{ template "projects" . }}
-            </div>
+    <div id="page-grid">
+        <div id="left" hx-get="/left" hx-trigger="load">
         </div>
-        <div id="flex-box">
-            <div>
-                {{ template "work-experience" . }}
-            </div>
+        <div id="center" hx-get="/center" hx-trigger="load">
+        </div>
+        <div id="right" hx-get="/right" hx-trigger="load">
         </div>
     </div>
+</div>
+{{ end }}
+
+{{ block "left" . }}
+<div>
+    {{ template "contact-info" . }}
+    {{ template "summary" . }}
+</div>
+{{ end }}
+
+{{ block "center" . }}
+<div>
+    {{ template "education" . }}
+    {{ template "work-experience" . }}
+    {{ template "projects" . }}
+</div>
+{{ end }}
+
+{{ block "right" . }}
+<div>
+    {{ template "skills" . }}
 </div>
 {{ end }}
 
@@ -59,27 +62,27 @@
 <div id="contact-info">
     <h1><span class="typewriter-dark">Martin Rimbro Åstrand</span></h1>
     <br />
-    <span class="typewriter-contact">
-        <div class="fas fa-globe">
-        </div> <a href="https://www.google.com/maps/place/Malm%C3%B6/@55.5701409,12.9335731,22534m/data=!3m2!1e3!4b1!4m6!3m5!1s0x465305a574c491ff:0xd3a905dfbd4888e5!8m2!3d55.604981!4d13.003822!16s%2Fm%2F011l894y?entry=ttu&g_ep=EgoyMDI1MDYxMC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
+    <span class="typewriter-summary links">
+        <div class="fas fa-globe"></div>
+        <a href="https://www.google.com/maps/place/Malm%C3%B6/@55.5701409,12.9335731,22534m/data=!3m2!1e3!4b1!4m6!3m5!1s0x465305a574c491ff:0xd3a905dfbd4888e5!8m2!3d55.604981!4d13.003822!16s%2Fm%2F011l894y?entry=ttu&g_ep=EgoyMDI1MDYxMC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
             Malmö, SE
         </a>
-    <br />
+        <br />
         <div class="fas fa-envelope">
         </div> <a href="mailto:martin.rimbro@gmail.com" target="_blank">
             martin.rimbro@gmail.com
         </a>
-    <br />
+        <br />
         <div class="fas fa-phone"></div> 
         <a href="tel:+46702836974" target="_blank">
             (+46)702 83 69 74
         </a>
-    <br />
+        <br />
         <div class="fa-brands fa-github"></div> 
         <a href="https://github.com/southofrubick" target="_blank">
             southofrubick
         </a>
-    <br />
+        <br />
         <div class="fa-brands fa-linkedin"></div> 
         <a href="https://se.linkedin.com/in/martin-rimbro-%C3%A5strand-0b508b210" target="_blank">
             Martin Rimbro Åstrand
@@ -92,18 +95,22 @@
 <div id="summary">
     <div class="title">
         <div class="fas fa-user"></div>
-        <h1><span class="typewriter-title">Summary</span></h1>
+        <h1><span class="typewriter-dark">Summary</span></h1>
     </div>
-    <span class="typewriter">
+    <span class="typewriter-summary">
         A motivated <b>full-stack</b> software engineer with <b>3+ years of experience</b> working in fintech.
-    </br>
-    </br>
+        </br>
+        </br>
+    </span>
+    <span class="typewriter-summary">
         I've had my hands in everything from the <b>CI/CD</b> workflow using <b>github</b> actions and <b>Argo</b>, to database migrations and queries in <b>postgreSQL</b>, to REST API implementations in <b>Django</b>, to client facing frontend work with <b>React</b> and <b>Typescript</b>.
-    </br>
-    </br>
+        </br>
+        </br>
+    </span>
+    <span class="typewriter-summary">
         The projects I worked on as a part of the "Core team" paved the way for us to become <b>number one</b> in our field.
-    </br>
-    </br>
+        </br>
+        </br>
     </span>
 </div>
 {{ end }}
@@ -264,6 +271,11 @@
                         Yaml
                     </span>
                 </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Bash
+                    </span>
+                </li>
             </ul>
             <div class="title small">
                 <div class="fas fa-circle-info"></div>
@@ -290,9 +302,12 @@
                         ZSH
                     </span>
                 </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Agile / Scrum
+                    </span>
+                </li>
             </ul>
-        </div>
-        <div>
             <div class="title small">
                 <div class="fas fa-circle-info"></div>
                 <h3><span class="typewriter-dark">Frameworks</span></h3>
@@ -339,6 +354,8 @@
                     </span>
                 </li>
             </ul>
+        </div>
+        <div>
             <div class="title small">
                 <div class="fas fa-circle-info"></div>
                 <h3><span class="typewriter-dark">Technologies</span></h3>
@@ -381,7 +398,92 @@
                 </li>
                 <li>
                     <span class="typewriter-dark">
+                        Jenkins
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
                         Styled Components
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Traefik
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Grafana
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        PostreSQL
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        MySQL
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        SQLite
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        OAuth2
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Node.js
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Swagger
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Jest
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        DocuSign
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Datadog
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Google Analytics
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Stripe
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Experian
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        Github Actions
+                    </span>
+                </li>
+                <li>
+                    <span class="typewriter-dark">
+                        CHANGE
                     </span>
                 </li>
             </ul>
@@ -415,9 +517,9 @@
     <span>Homelab Linux, K3S, docker, Grafana, Prometheus, Argo, Cloudflare</span>
     <span class="typewriter">
         In my fascination with <b>hardware, networking, and infrastructure</b>, I've set up a local server cluster running a number of apps in <b>Kubernetes</b> all using remote storage hosted on a Debian server with ZFS and NFS.
-        </br>
-        </br>
-        Having a local environment where I can learn about <b>infrastructure</b> and <b>hosting</b>, and experiment has given me a lot of experience setting up <b>HA (High Availability)</b> and efficient applications.
+                        </br>
+                        </br>
+                        Having a local environment where I can learn about <b>infrastructure</b> and <b>hosting</b>, and experiment has given me a lot of experience setting up <b>HA (High Availability)</b> and efficient applications.
     </span>
 </div>
 {{ end }}

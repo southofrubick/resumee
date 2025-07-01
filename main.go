@@ -18,7 +18,7 @@ func (t *Templates) Render(w io.Writer, name string, data interface{}, c echo.Co
 
 func NewTemplates() *Templates {
 	return &Templates{
-		templates: template.Must(template.ParseGlob("index.html")),
+		templates: template.Must(template.ParseGlob("views/index.html")),
 	}
 }
 
@@ -30,12 +30,24 @@ func main() {
 
 	e := echo.New()
 	e.Use(middleware.Logger())
-	e.File("style.css", "style.css")
+	e.File("css/style.css", "css/style.css")
 
 	e.Renderer = NewTemplates()
 
 	e.GET("/",  func(c echo.Context) error {
 		return c.Render(200, "index", 0)
+	})
+
+	e.GET("/left",  func(c echo.Context) error {
+		return c.Render(200, "left", 0)
+	})
+
+	e.GET("/center",  func(c echo.Context) error {
+		return c.Render(200, "center", 0)
+	})
+
+	e.GET("/right",  func(c echo.Context) error {
+		return c.Render(200, "right", 0)
 	})
 
 	e.Logger.Fatal(e.Start(":42069"))
